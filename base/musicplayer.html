@@ -1,0 +1,33 @@
+<html>
+    <body>
+        <div id="music-player-2" class="center">
+            <!-- Sample song -->
+            <div id="song-data">
+                <img src="https://i.scdn.co/image/ab67616d00001e023080b96f831aa859b1f494d6">
+                <div id="title">Promise </div>
+                <div id="artist">Matteo de Grandis</div>
+            </div>
+            <!-- YT link: https://youtu.be/htZccp6LFMs?si=n3RHTCpPOGw3hKd- -->
+            
+            <div id="music-player-ctrl">
+                <!-- Media control -->
+                <div id="player-control" onclick="playAudio()">
+                    <div id="m-play">►</div>
+                    <div id="m-pause" style="display: none;">❚❚</div>
+                </div>
+                <input type="range" min="1" max="100" value="0" id="m-seek" onchange="seekTo()">
+
+                <!-- Duration -->
+                <div id="curr-duration" class="dur">00:00</div>
+                <div class="dur"> / </div>
+                <div id="m-duration" class="dur">-</div>
+            </div>
+        </div>
+
+        <audio id="music-audio" src="https://od.lk/s/NjFfMTAwNjgyNTAxXw/Matteo%20De%20Grandis%20-%20Promise.mp3" type="audio">
+            Your browser does not support the audio tag.
+        </audio>
+
+        <!-- track assist: https://toughengineer.github.io/demo/slider-styler/slider-styler.html#explanation -->
+    </body>
+</html>
