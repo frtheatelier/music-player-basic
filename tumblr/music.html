@@ -10,6 +10,11 @@
         <meta name="text:m-artist" content="Mateo de Grandis" />
         <meta name="text:m-song-url" content="https://od.lk/s/NjFfMTAwNjgyNTAxXw/Matteo%20De%20Grandis%20-%20Promise.mp3" />
 
+        <meta name="select:Position" content="top-left">
+        <meta name="select:Position" content="top-right">
+        <meta name="select:Position" content="bottom-left">
+        <meta name="select:Position" content="bottom-right">
+
         <!-- Add the following to <style> -->
         <style>
             :root {
@@ -128,12 +133,43 @@
                 font-size: 0.7rem;
             }
 
-            /* Note that this is not yet positioned */
+            /* POSITIONS -- MODIFY MARGINS TO ADJUST DISTANCE */
+            .bottom-left {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                margin-left: 25px;
+                margin-bottom: 25px;
+            }
+
+            .bottom-right {
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                margin-right: 25px;
+                margin-bottom: 25px;
+            }
+
+            .top-left {
+                position: absolute;
+                top: 0;
+                left: 0;
+                margin-left: 25px;
+                margin-top: 25px;
+            }
+
+            .top-right {
+                position: absolute;
+                top: 0;
+                right: 0;
+                margin-right: 25px;
+                margin-top: 25px;
+            }
         </style>
     </head>
     <body>
         <!-- Add the following to anywhere in your site -->
-        <div id="music-player-2" class="center">
+        <div id="music-player-2" class="{select:Position}">
             <!-- Sample song -->
             <div id="song-data">
                 <img src="{image:m-album-img}">
