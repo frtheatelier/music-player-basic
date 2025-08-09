@@ -6,8 +6,9 @@
         <meta name="color:m-prog-1" content="0000FF" />
         <meta name="color:m-prog-2" content="FFFFFF00" />
         <meta name="image:m-album-img" content="" />
-        <meta name="text:m-song-title" content="Lorem Ipsum" />
-        <meta name="text:m-artist" content="Lorem Ipsum" />
+        <meta name="text:m-song-title" content="Promise" />
+        <meta name="text:m-artist" content="Mateo de Grandis" />
+        <meta name="text:m-song-url" content="https://od.lk/s/NjFfMTAwNjgyNTAxXw/Matteo%20De%20Grandis%20-%20Promise.mp3" />
 
         <!-- Add the following to <style> -->
         <style>
@@ -126,6 +127,37 @@
             #music-player-2 #music-player-ctrl .dur {
                 font-size: 0.7rem;
             }
+
+            /* Note that this is not yet positioned */
         </style>
     </head>
+    <body>
+        <!-- Add the following to anywhere in your site -->
+        <div id="music-player-2" class="center">
+            <!-- Sample song -->
+            <div id="song-data">
+                <img src="{image:m-album-img}">
+                <div id="title">{text:m-song-title}</div>
+                <div id="artist">{text:m-artist}</div>
+            </div>
+            
+            <div id="music-player-ctrl">
+                <!-- Media control -->
+                <div id="player-control" onclick="playAudio()">
+                    <div id="m-play">►</div>
+                    <div id="m-pause" style="display: none;">❚❚</div>
+                </div>
+                <input type="range" min="1" max="100" value="0" id="m-seek" onchange="seekTo()">
+
+                <!-- Duration -->
+                <div id="curr-duration" class="dur">-</div>
+                <div class="dur"> / </div>
+                <div id="m-duration" class="dur">-</div>
+            </div>
+        </div>
+
+        <audio id="music-audio" src="{text:m-song-url}" type="audio">
+            Your browser does not support the audio tag.
+        </audio>
+    </body>
 </html>
