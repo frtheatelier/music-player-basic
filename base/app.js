@@ -1,10 +1,10 @@
-var x = document.getElementById('music-audio');
-var playBtn = document.getElementById('m-play');
-var pauseBtn = document.getElementById('m-pause');
+var x = document.getElementById("music-audio");
+var playBtn = document.getElementById("m-play");
+var pauseBtn = document.getElementById("m-pause");
 
-var currDur = document.getElementById('curr-duration');
-var totalDur = document.getElementById('m-duration');
-var seekInput = document.getElementById('m-seek');
+var currDur = document.getElementById("curr-duration");
+var totalDur = document.getElementById("m-duration");
+var seekInput = document.getElementById("m-seek");
 
 let updateDur;
 
@@ -18,12 +18,12 @@ while (!x.paused) {
 function playAudio() {
   if (x.paused) {
     x.play();
-    playBtn.style.display = 'none';
-    pauseBtn.style.display = 'block';
+    playBtn.style.display = "none";
+    pauseBtn.style.display = "block";
   } else {
     x.pause();
-    playBtn.style.display = 'block';
-    pauseBtn.style.display = 'none';
+    playBtn.style.display = "block";
+    pauseBtn.style.display = "none";
   }
 }
 
@@ -49,43 +49,60 @@ function updateProgress() {
 updateDur = setInterval(seekUpdate, 1000);
 
 function seekUpdate() {
-  let seekPos = 0
+  let seekPosition = 0;
 
   // Check if the current track duration is a legible number
   if (!isNaN(x.duration)) {
-    seekPos = x.currentTime * (100 / x.duration);
-    seekInput.value = seekPos;
+    seekPosition = x.currentTime * (100 / x.duration);
+    seekInput.value = seekPosition;
 
     updateProgress();
 
     // Calculate the time left and the total duration
-    let currMin = Math.floor(x.currentTime / 60);
-    let currSec = Math.floor(x.currentTime - currMin * 60);
-    let durMin = Math.floor(x.duration / 60);
-    let durSec = Math.floor(x.duration - durMin * 60);
+    let currentMinutes = Math.floor(x.currentTime / 60);
+    let currentSeconds = Math.floor(x.currentTime - currentMinutes * 60);
+    let durationMinutes = Math.floor(x.duration / 60);
+    let durationSeconds = Math.floor(x.duration - durationMinutes * 60);
 
     // Add a zero to the single digit time values
-    if (currSec < 10) {
-      currSec = '0' + currSec;
+    if (currentSeconds < 10) {
+      currentSeconds = "0" + currentSeconds;
     }
-    if (durSec < 10) {
-      durSec = '0' + durSec;
+    if (durationSeconds < 10) {
+      durationSeconds = "0" + durationSeconds;
     }
-    if (currMin < 10) {
-      currMin = '0' + currMin;
+    if (currentMinutes < 10) {
+      currentMinutes = "0" + currentMinutes;
     }
-    if (durMin < 10) {
-      durMin = '0' + durMin;
+    if (durationMinutes < 10) {
+      durationMinutes = "0" + durationMinutes;
     }
 
     // Display the updated duration
-    currDur.textContent = currMin + ':' + currSec;
-    totalDur.textContent = durMin + ':' + durSec;
+    currDur.textContent = currentMinutes + ":" + currentSeconds;
+    totalDur.textContent = durationMinutes + ":" + durationSeconds;
   }
 }
 
 function seekTo() {
   let seekto = x.duration * (seekInput.value / 100);
+  // Set the current track position to the calculated seek position
   x.currentTime = seekto;
   updateProgress();
 }
+
+// https://youtu.be/iLmBy-HKIAw?si=zYovmIyR6e2XzgwY
+
+// const autoscrollers = document.querySelectorAll(".autoscroll");
+
+// Triggers animation if browser does not opt for reduced motion
+// But I am Lazy atm sorry ;;;
+// if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+//   addAnimation();
+// }
+
+// function addAnimation() {
+//   autoscrollers.forEach((autoscroll) => {
+//     autoscroll.setAttribute("data-animated", true)
+//   });
+// }

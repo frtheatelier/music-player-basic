@@ -68,33 +68,46 @@ body {
     }
   }
 
-  #title {
-    color: $con;
-    font-weight: bold;
-    font-size: 1.20rem;
-
-    overflow-x: auto;
-    text-wrap: nowrap;
-
-    white-space: nowrap;
-    width: 150px;
-  }
-
-  #artist {
-    color: $con;
-    font-size: 0.8rem;
-
-    white-space: nowrap;
-    width: 150px;
-  }
-
   .autoscroll {
+    overflow-x: hidden;
+    // Linear gradient
+    // mask: linear-gradient(-90deg, transparent,white 20%);
+    // -webkit-mask: linear-gradient(-90deg, transparent,white 20%);
+
     -ms-overflow-style: none;  /* Internet Explorer 10+ */
     scrollbar-width: none;  /* Firefox, Safari 18.2+, Chromium 121+ */
   }
-  
+
   .autoscroll::-webkit-scrollbar { 
     display: none;  /* Older Safari and Chromium */
+  }
+
+  .autoscroll-inner {
+    animation: scroll 5s linear infinite;
+  }
+
+  #title {
+    max-width: 150px;
+
+    #title-text {
+      color: $con;
+      font-weight: bold;
+      font-size: 1.20rem;
+      text-wrap: nowrap;
+
+      white-space: nowrap;
+      width: 150px;
+    }
+  }
+
+  #artist {
+    max-width: 150px;
+    
+    #artist-text {
+      color: $con;
+      font-size: 0.8rem;
+      white-space: nowrap;
+    }
   }
 
   #music-player-ctrl {
@@ -205,6 +218,12 @@ body {
     .dur {
       font-size: 0.7rem;
     }
+  }
+}
+
+@keyframes scroll {
+  to {
+    transform: translate(-100%);
   }
 }
 
