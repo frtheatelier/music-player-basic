@@ -45,11 +45,18 @@
                 font-size: 1.20rem;
                 overflow-x: auto;
                 text-wrap: nowrap;
+
+                /* for autoscroll */
+                white-space: nowrap;
+                width: 190px;
             }
 
             #music-player-2 #artist {
                 color: rgb(var(--nx-m-text-col));
                 font-size: 0.8rem;
+
+                white-space: nowrap;
+                width: 190px;
             }
 
             #music-player-2 #music-player-ctrl {
@@ -61,7 +68,6 @@
                 display: flex;
                 align-items: center;
                 margin-top: 15px;
-                /*mozilla*/
             }
 
             #music-player-2 #music-player-ctrl #player-control {
@@ -173,8 +179,12 @@
             <!-- Sample song -->
             <div id="song-data">
                 <img src="{image:Music Album}">
-                <div id="title">{text:Music Title}</div>
-                <div id="artist">{text:Music Artist}</div>
+                <div id="title" class="autoscroll">
+                    <div id="title-text" class="autoscroll-inner">{text:Music Title}</div>
+                </div>
+                <div id="artist" class="autoscroll">
+                    <div id="artist-text" class="autoscroll-inner">{text:Music Artist}</div>
+                </div>
             </div>
             
             <div id="music-player-ctrl">
@@ -264,16 +274,16 @@
 
                     // Add a zero to the single digit time values
                     if (currSec < 10) {
-                    currSec = '0' + currSec;
+                        currSec = '0' + currSec;
                     }
                     if (durSec < 10) {
-                    durSec = '0' + durSec;
+                        durSec = '0' + durSec;
                     }
                     if (currMin < 10) {
-                    currMin = '0' + currMin;
+                        currMin = '0' + currMin;
                     }
                     if (durMin < 10) {
-                    durMin = '0' + durMin;
+                        durMin = '0' + durMin;
                     }
 
                     // Display the updated duration
@@ -287,6 +297,38 @@
                 x.currentTime = seekto;
                 updateProgress();
             }
+
+            // autoscroll
+            // https://stackoverflow.com/questions/49968622/auto-scroll-a-horizontal-div
+            const scrollTitle = document.getElementById('title');
+            const scrollArtist = document.getElementById('artist');
+
+            function autoscroll(el, speed) {
+                let w = el.scrollWidth;
+
+                if (el.scrollLeft <= w) {
+                    el.scrollTo(el.scrollLeft + speed, 0);
+                } else {
+                    el.scrollLeft = 0;
+                }
+            }
+
+            const scrollSpeed = 2;
+
+            window.addEventListener('load', () => {
+                self.setInterval(() => {
+                    autoscroll(scrollTitle, scrollSpeed);
+                    autoscroll(scrollArtist, scrollSpeed)
+                })
+            })
+
+            // setInterval(() => {
+            //     scrollAmount += scrollSpeed;
+            //     if (scrollAmount >= scrollContainer.scrollWidth - scrollContainer.clientWidth) {
+            //         scrollAmount = 0; // Reset to loop if desired
+            //     }
+            //     scrollContainer.scrollLeft = scrollAmount;
+            // }, 20); // Adjust interval for smoothness
 
         </script>
     </body>

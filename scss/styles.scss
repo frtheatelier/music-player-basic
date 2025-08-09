@@ -10,7 +10,6 @@ body {
   font-family: monospace;
 }
 
-// Layout 
 .center {
   position: absolute;
   transform: translate(-50%, -50%);
@@ -50,8 +49,6 @@ body {
   margin-top: 25px;
 }
 
-// Music player
-
 #music-player-2 {
   border: solid 1px $con;
   width: 250px;
@@ -78,11 +75,26 @@ body {
 
     overflow-x: auto;
     text-wrap: nowrap;
+
+    white-space: nowrap;
+    width: 150px;
   }
 
   #artist {
     color: $con;
     font-size: 0.8rem;
+
+    white-space: nowrap;
+    width: 150px;
+  }
+
+  .autoscroll {
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox, Safari 18.2+, Chromium 121+ */
+  }
+  
+  .autoscroll::-webkit-scrollbar { 
+    display: none;  /* Older Safari and Chromium */
   }
 
   #music-player-ctrl {
@@ -198,5 +210,3 @@ body {
 
 /*generated with Input range slider CSS style generator (version 20211225)
 https://toughengineer.github.io/demo/slider-styler*/
-
-
