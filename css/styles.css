@@ -73,6 +73,10 @@ body {
 
 #music-player-2 .autoscroll-inner {
 	animation: scroll 5s linear infinite;
+    text-wrap: nowrap;
+    white-space: nowrap;
+
+    width: max-content;
 }
 
 #music-player-2 #title {
@@ -83,8 +87,6 @@ body {
 	color: blue;
 	font-weight: bold;
 	font-size: 1.20rem;
-	text-wrap: nowrap;
-	white-space: nowrap;
 	width: 150px;
 }
 
@@ -95,7 +97,6 @@ body {
 #music-player-2 #artist #artist-text {
 	color: blue;
 	font-size: 0.8rem;
-	white-space: nowrap;
 }
 
 #music-player-2 #music-player-ctrl {

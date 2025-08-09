@@ -84,6 +84,10 @@ body {
 
   .autoscroll-inner {
     animation: scroll 5s linear infinite;
+    text-wrap: nowrap;
+    white-space: nowrap;
+
+    width: max-content;
   }
 
   #title {
@@ -93,9 +97,6 @@ body {
       color: $con;
       font-weight: bold;
       font-size: 1.20rem;
-      text-wrap: nowrap;
-
-      white-space: nowrap;
       width: 150px;
     }
   }
@@ -106,7 +107,6 @@ body {
     #artist-text {
       color: $con;
       font-size: 0.8rem;
-      white-space: nowrap;
     }
   }
 

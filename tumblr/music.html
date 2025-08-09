@@ -39,24 +39,42 @@
                 margin-right: 15px;
             }
 
-            #music-player-2 #title {
-                color: rgb(var(--nx-m-text-col));
-                font-weight: bold;
-                font-size: 1.20rem;
-                overflow-x: auto;
-                text-wrap: nowrap;
-
-                /* for autoscroll */
-                white-space: nowrap;
-                width: 190px;
+            #music-player-2 .autoscroll {
+                overflow-x: hidden;
+                -ms-overflow-style: none;
+                /* Internet Explorer 10+ */
+                scrollbar-width: none;
+                /* Firefox, Safari 18.2+, Chromium 121+ */
             }
 
-            #music-player-2 #artist {
-                color: rgb(var(--nx-m-text-col));
-                font-size: 0.8rem;
+            #music-player-2 .autoscroll::-webkit-scrollbar {
+                display: none;
+                /* Older Safari and Chromium */
+            }
 
+            #music-player-2 .autoscroll-inner {
+                animation: scroll 5s linear infinite;
+                text-wrap: nowrap;
                 white-space: nowrap;
-                width: 190px;
+
+                width: max-content;
+            }
+
+            #music-player-2 #title, #artist {
+                max-width: 150px;
+            }
+
+            #music-player-2 #title #title-text {
+                color: rgb(var(--nx-m-text-col));
+                font-weight: bold;
+                font-size: 1.6rem;
+                
+                width: 150px;
+            }
+
+            #music-player-2 #artist #artist-text {
+                color: rgb(var(--nx-m-text-col));
+                font-size: 1.1rem;
             }
 
             #music-player-2 #music-player-ctrl {
@@ -170,6 +188,13 @@
                 right: 0;
                 margin-right: 25px;
                 margin-top: 25px;
+            }
+
+                        
+            @keyframes scroll {
+                to {
+                    transform: translate(-100%);
+                }
             }
         </style>
     </head>

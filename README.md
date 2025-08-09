@@ -14,3 +14,4 @@ This is meant to complement an already themed Tumblr page or website. Kind of.
 - Audio HTML: [W3Schools](https://www.w3schools.com/jsref/dom_obj_audio.asp)
 - Music player guide lol: [Geek4Geeks](https://www.geeksforgeeks.org/javascript/create-a-music-player-using-javascript/)
 - SCSS to CSS (w/ node.js): [CODERAIN](https://thecoderain.blogspot.com/2019/12/run-and-compile-sass-scss-file-to-css.html)
+- Autoscroll titles: [Kevin Powell](https://youtu.be/iLmBy-HKIAw?si=zYovmIyR6e2XzgwY)
