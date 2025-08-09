@@ -68,8 +68,6 @@
                 color: rgb(var(--nx-m-text-col));
                 font-weight: bold;
                 font-size: 1.6rem;
-                
-                width: 150px;
             }
 
             #music-player-2 #artist #artist-text {
@@ -347,13 +345,20 @@
                 })
             })
 
-            // setInterval(() => {
-            //     scrollAmount += scrollSpeed;
-            //     if (scrollAmount >= scrollContainer.scrollWidth - scrollContainer.clientWidth) {
-            //         scrollAmount = 0; // Reset to loop if desired
-            //     }
-            //     scrollContainer.scrollLeft = scrollAmount;
-            // }, 20); // Adjust interval for smoothness
+            const autoscrollers = document.querySelectorAll(".autoscroll");
+            autoscrollers.forEach((autoscroll) => {
+                var w_outer = autoscroll.offsetWidth; // width of outer
+
+                var inner = document.querySelector(".autoscroll-inner");
+                var w_inner = inner.offsetWidth;
+                
+                console.log("outer", w_outer, "inner", w_inner);
+
+                if (w_inner <= w_outer) {
+                    // inner.style.animation-play-state = 'paused';
+                    inner.classList.add("paused");
+                }
+            });
 
         </script>
     </body>
