@@ -1,27 +1,27 @@
 <html>
     <head>
         <!-- Add the following under {block:Options} -->
-        <meta name="color:m-border" content="0000FF" />
-        <meta name="color:m-text" content="0000FF" />
-        <meta name="color:m-prog-1" content="0000FF" />
-        <meta name="color:m-prog-2" content="FFFFFF00" />
-        <meta name="image:m-album-img" content="" />
-        <meta name="text:m-song-title" content="Promise" />
-        <meta name="text:m-artist" content="Mateo de Grandis" />
-        <meta name="text:m-song-url" content="https://od.lk/s/NjFfMTAwNjgyNTAxXw/Matteo%20De%20Grandis%20-%20Promise.mp3" />
+        <meta name="color:Music border color" content="0000FF" />
+        <meta name="color:Music text" content="0000FF" />
+        <meta name="color:Music progbar color 1" content="0000FF" />
+        <meta name="color:Music progbar color 2" content="FFFFFF00" />
+        <meta name="image:Music Album" content="" />
+        <meta name="text:Music Title" content="Promise" />
+        <meta name="text:Music Artist" content="Mateo de Grandis" />
+        <meta name="text:Music URL" content="https://od.lk/s/NjFfMTAwNjgyNTAxXw/Matteo%20De%20Grandis%20-%20Promise.mp3" />
 
-        <meta name="select:Position" content="top-left">
-        <meta name="select:Position" content="top-right">
-        <meta name="select:Position" content="bottom-left">
-        <meta name="select:Position" content="bottom-right">
+        <meta name="select:Music position" content="top-left" title="Top Left" />
+        <meta name="select:Music position" content="top-right" title="Top Right" />
+        <meta name="select:Music position" content="bottom-left" title="Bottom Left" />
+        <meta name="select:Music position" content="bottom-right" title="Bottom Right" />
 
         <!-- Add the following to <style> -->
         <style>
             :root {
-                --nx-m-border-col: {RGBcolor:m-border};
-                --nx-m-text-col: {RGBcolor:m-text};
-                --nx-m-prog-1-col: {RGBcolor:m-prog-1};
-                --nx-m-prog-2-col: {RGBcolor:m-prog-2};
+                --nx-m-border-col: {RGBcolor:Music border color};
+                --nx-m-text-col: {RGBcolor:Music text};
+                --nx-m-prog-1-col: {RGBcolor:Music progbar color 1};
+                --nx-m-prog-2-col: {RGBcolor:Music progbar color 2};
             }
 
             #music-player-2 {
@@ -169,12 +169,12 @@
     </head>
     <body>
         <!-- Add the following to anywhere in your site -->
-        <div id="music-player-2" class="{select:Position}">
+        <div id="music-player-2" class="{select:Music position}">
             <!-- Sample song -->
             <div id="song-data">
-                <img src="{image:m-album-img}">
-                <div id="title">{text:m-song-title}</div>
-                <div id="artist">{text:m-artist}</div>
+                <img src="{image:Music Album}">
+                <div id="title">{text:Music Title}</div>
+                <div id="artist">{text:Music Artist}</div>
             </div>
             
             <div id="music-player-ctrl">
@@ -192,7 +192,7 @@
             </div>
         </div>
 
-        <audio id="music-audio" src="{text:m-song-url}" type="audio">
+        <audio id="music-audio" src="{text:Music URL}" type="audio">
             Your browser does not support the audio tag.
         </audio>
 
