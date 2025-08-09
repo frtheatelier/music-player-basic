@@ -94,18 +94,21 @@ function seekTo() {
 // https://youtu.be/iLmBy-HKIAw?si=zYovmIyR6e2XzgwY
 
 const autoscrollers = document.querySelectorAll(".autoscroll");
-autoscrollers.forEach((autoscroll) => {
-    var w_outer = autoscroll.offsetWidth; // width of outer
+const inners = document.querySelectorAll(".autoscroll-inner");
+// console.log(autoscrollers);
+autoscrollers.forEach((autoscroll, i) => {
+   var w_outer = autoscroll.offsetWidth; // width of outer
 
-    var inner = document.querySelector(".autoscroll-inner");
-    var w_inner = inner.offsetWidth;
-    
-    console.log("outer", w_outer, "inner", w_inner);
+  //  var inner = document.querySelector(".autoscroll-inner");
+  var inner = inners[i];
+   var w_inner = inner.offsetWidth;
+   
+   console.log("outer", w_outer, "inner", w_inner);
 
-    if (w_inner <= w_outer) {
-        // inner.style.animation-play-state = 'paused';
-        inner.classList.add("paused");
-    }
+   if (w_inner <= w_outer) {
+    // inner.style.animation-play-state = 'paused';
+    inner.classList.add("paused");
+   }
 });
 
 // const autoscrollers = document.querySelectorAll(".autoscroll");

@@ -60,6 +60,13 @@
                 width: max-content;
             }
 
+            .paused{
+                -webkit-animation-play-state: paused !important;
+                -moz-animation-play-state: paused !important;
+                -o-animation-play-state: paused !important; 
+                animation-play-state: paused !important;
+            }
+
             #music-player-2 #title, #artist {
                 max-width: 150px;
             }
@@ -346,10 +353,13 @@
             })
 
             const autoscrollers = document.querySelectorAll(".autoscroll");
-            autoscrollers.forEach((autoscroll) => {
+            const inners = document.querySelectorAll(".autoscroll-inner");
+            // console.log(autoscrollers);
+            autoscrollers.forEach((autoscroll, i) => {
                 var w_outer = autoscroll.offsetWidth; // width of outer
 
-                var inner = document.querySelector(".autoscroll-inner");
+                //  var inner = document.querySelector(".autoscroll-inner");
+                var inner = inners[i];
                 var w_inner = inner.offsetWidth;
                 
                 console.log("outer", w_outer, "inner", w_inner);

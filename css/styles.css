@@ -79,6 +79,13 @@ body {
     width: max-content;
 }
 
+.paused{
+    -webkit-animation-play-state: paused  !important;
+    -moz-animation-play-state: paused  !important;
+    -o-animation-play-state: paused  !important; 
+    animation-play-state: paused  !important;
+  }
+
 #music-player-2 #title {
 	max-width: 150px;
 }
@@ -107,7 +114,6 @@ body {
 	display: flex;
 	align-items: center;
 	margin-top: 15px;
-	/*mozilla*/
 }
 
 #music-player-2 #music-player-ctrl #player-control {
