@@ -1,0 +1,167 @@
+$bg: #cecece;
+$bg-darker: darken($bg, 5);
+
+$con: blue;
+$con-darker: blue;
+
+body {
+  background: $bg;
+  padding: 20px;
+  font-family: monospace;
+}
+
+.center {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+}
+
+#music-player-2 {
+  border: solid 1px $con;
+  width: 250px;
+  height: max-content;
+
+  padding: 10px;
+
+  #song-data {
+    img {
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+
+      float: left;
+
+      margin-right: 15px;
+    }
+  }
+
+  #title {
+    color: $con;
+    font-weight: bold;
+    font-size: 1.20rem;
+
+    overflow-x: auto;
+    text-wrap: nowrap;
+  }
+
+  #artist {
+    color: $con;
+    font-size: 0.8rem;
+  }
+
+  #music-player-ctrl {
+    clear: both;
+    width: 100%;
+    height: 10px;
+    // border: dashed 1px blue;
+    color: $con;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+
+    margin-top: 15px;
+
+    #player-control {
+      // font-size: 1.25rem;
+      margin-right: 15px;
+      color: $con;
+    }
+
+    #m-play {
+      font-size: 1.4rem;
+      // kind of required bc wtf is the sizing hello
+    }
+
+    #music-bar-all {
+      width: 100%;
+      height: 10px;
+      // background-color: ;
+      border: solid 1px $con;
+      display: flex;
+
+      #marker {
+        width: 4px;
+        height: 15px;
+        background-color: $con;
+        // margin-left: -2px;
+      }
+
+      #progress {
+        width: 0%;
+        background-color: $con;
+      }
+    }
+    
+    #m-seek {
+      width: 100%;
+      height: 10px;
+      -webkit-appearance: none;
+      appearance: none;
+
+      padding: 0;
+
+      --range: calc(var(--max) - var(--min));
+      --ratio: calc((var(--value) - var(--min)) / var(--range));
+      --sx: calc(0.5 * 0.4em + var(--ratio) * (100% - 0.4em));
+    }
+
+    #m-seek::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+
+      width: 0.2em;
+      height: 10px;
+      border-radius: 0;
+      background: $con;
+      border: none;
+      box-shadow: none;
+      margin-top: calc(max((10px - 1px - 1px) * 0.5, 0px) - 10px * 0.5);
+    }
+
+    #m-seek::-webkit-slider-runnable-track {
+      height: 10px;
+      border: 1px solid $con;
+      border-radius: 0;
+      background: linear-gradient($con, $con) 0/var(--sx) 100% no-repeat, #FFFFFF00;
+      box-shadow: none;
+
+      padding: 0;
+    }
+
+    /*mozilla*/
+    #m-seek::-moz-range-thumb {
+      width: 0.2em;
+      height: 10px;
+      border-radius: 0;
+      background: $con;
+      border: none;
+      box-shadow: none;
+      margin-top: calc(max((10px - 1px - 1px) * 0.5, 0px) - 10px * 0.5);
+    }
+
+    #m-seek::-moz-range-track {
+      height: 10px;
+      border: 1px solid $con;
+      border-radius: 0;
+      background: linear-gradient($con, $con) 0/var(--sx) 100% no-repeat, #FFFFFF00;
+      box-shadow: none;
+    }
+
+    #curr-duration {
+      margin-left: 15px;
+      // color: blue;
+    }
+
+    .dur {
+      font-size: 0.7rem;
+    }
+  }
+}
+
+/*generated with Input range slider CSS style generator (version 20211225)
+https://toughengineer.github.io/demo/slider-styler*/
+
+
