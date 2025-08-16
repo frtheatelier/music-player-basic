@@ -114,7 +114,6 @@ autoscrollers.forEach((autoscroll, i) => {
 // const autoscrollers = document.querySelectorAll(".autoscroll");
 
 // Triggers animation if browser does not opt for reduced motion
-// But I am Lazy atm sorry ;;;
 // if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
 //   addAnimation();
 // }
@@ -124,3 +123,13 @@ autoscrollers.forEach((autoscroll, i) => {
 //     autoscroll.setAttribute("data-animated", true)
 //   });
 // }
+
+if(window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  disableAnimation();
+}
+
+function disableAnimation() {
+  autoscrollers.forEach((autoscroll) => {
+    autoscroll.classList.add("paused");
+  });
+}
